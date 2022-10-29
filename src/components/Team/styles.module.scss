@@ -1,0 +1,87 @@
+@import "src/assets/styles/variables";
+
+.player {
+  width: 131px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.player.home {
+  --player-color: hsl(var(--color-green-01));
+  --player-color2: hsl(var(--color-green-05));
+}
+
+.player.away {
+  --player-color: hsl(var(--color-purple-01));
+  --player-color2: hsl(var(--color-purple-05));
+}
+
+.name,
+.oddsAndLogo {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.oddsAndLogo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4.5px;
+  color: var(--player-color);
+}
+
+.oddsAndLogo:before {
+  content: '';
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(
+                  from 90deg,
+                  var(--player-color) var(--player-odds),
+                  var(--player-color2) var(--player-odds)
+  ) no-repeat center/100% 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  width: $player-logo-size;
+  aspect-ratio: 1;
+  padding: 5px;
+  margin: $player-logo-border-width;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.normal {
+  .oddsAndLogo:before {
+    width: calc($player-logo-size + 2 * $player-logo-offset + 2 * $player-logo-border-width);
+  }
+
+  .oddsAndLogo {
+    .logo {
+      width: $player-logo-size;
+      padding: 5px;
+      margin: $player-logo-border-width;
+    }
+  }
+}
+
+.compact {
+  .oddsAndLogo:before {
+    width: calc($player-logo-size-compact + 2 * $player-logo-offset-compact + 2 * $player-logo-border-width-compact);
+  }
+
+  .oddsAndLogo {
+    .logo {
+      width: $player-logo-size-compact;
+      padding: 2px;
+      margin: $player-logo-border-width-compact;
+    }
+  }
+}

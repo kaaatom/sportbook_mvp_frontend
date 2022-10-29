@@ -1,0 +1,291 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.numeric,
+.search {
+  appearance: none;
+
+  width: 100%;
+  flex-shrink: 1;
+  margin: 0;
+  border: 1px solid $color-purple-05;
+  border-radius: 0;
+  transition: border-color $transition-time;
+  background-color: transparent;
+  outline: none;
+  color: white;
+}
+
+/*
+ * Numeric inputs
+ */
+
+.numeric {
+  padding-left: 20px;
+  border-right: none;
+}
+
+/*
+ * Remove native spinner from numeric input; unfortunately, browsers don't respect "appearance: none" in this regard.
+ * Chrome still adds the spinner, so it requires some more vendor-specific styling.
+ */
+.numeric {
+  appearance: textfield;
+}
+
+/* remove native spinner in Chrome */
+.numeric::-webkit-outer-spin-button,
+.numeric::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.numeric + span {
+  @include desktop {
+    padding: 20px 18px 20px 8px;
+  }
+
+  padding: 16px 18px 16px 8px;
+  color: $color-purple-01;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid $color-purple-05;
+  border-left: none;
+  transition: border-color $transition-time;
+}
+
+.numeric:focus,
+.numeric:focus + span {
+  border-color: $color-purple-01;
+}
+
+/*
+ * Search inputs
+ */
+
+.search {
+  padding: 0;
+  border-left: none;
+}
+
+.search::placeholder {
+  color: $color-purple-01;
+  opacity: 1;
+}
+
+.search + span {
+  order: -1;
+  width: 3.375rem;
+  aspect-ratio: 1;
+  border: 0.0625rem solid $color-purple-05;
+  border-right: none;
+  transition: border-color $transition-time;
+  background:
+          url(../../assets/icons/search.svg) no-repeat 1.125rem center/1.125rem,
+          transparent;
+  text-indent: -9999em;
+}
+
+.search:focus,
+.search:focus + span {
+  border-color: $color-purple-01;
+}
+
+// info
+.list {
+  position: absolute;
+  width: 479px;
+  max-height: 394px;
+  margin-top: 0;
+  display: none;
+  overflow-y: auto;
+  background: rgba(13, 4, 34);
+  list-style: none;
+  z-index: 100;
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 2px;
+  }
+}
+
+.open {
+  display: block;
+}
+
+.betInfo {
+  height: 58px;
+  margin: 0 5px;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+.betInfo > span {
+  height: 1px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 49.48%, rgba(255, 255, 255, 0) 100%);
+}
+
+.betInfo > div {
+  width: 100%;
+  margin: auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.betInfo > div::before {
+  content: '';
+  display: inline-block;
+  vertical-align: center;
+  width: 48px;
+  aspect-ratio: 1;
+  background: url(../../assets/icons/uefa.svg) no-repeat 0/contain;
+}
+
+.time {
+  margin: 0 !important;
+  flex-direction: row !important;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.time > p {
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.num {
+  font-size: 12px !important;
+  line-height: 18px !important;
+}
+
+.colon {
+  margin: 0 2px !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+}
+
+
+.match {
+  display: flex;
+  text-transform: uppercase;
+}
+
+.match > span {
+  display: flex;
+  align-items: center;
+  column-gap: 3px;
+  min-width: 40px;
+  margin: 0 10px;
+}
+
+.match > span::before,
+.match > span::after {
+  content: ' ';
+  width: 100%;
+  height: 1px;
+  flex-shrink: 1;
+  background-color: $color-grey-05;
+}
+
+.player {
+  display: flex;
+  width: 88px;
+  gap: 4px;
+  text-align: center;
+}
+
+.player.home {
+  --player-color: hsl(var(--color-green-01));
+  --player-color2: hsl(var(--color-green-05));
+}
+
+.player.away {
+  --player-color: hsl(var(--color-purple-01));
+  --player-color2: hsl(var(--color-purple-05));
+}
+
+.odds,
+.name {
+  flex: 0 1 auto;
+  text-align: left;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.name {
+  text-transform: none;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.odds {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--player-color);
+}
+
+.odds::before {
+  content: '';
+  display: block;
+  width: calc($player-logo-size-compact + 2 * $player-logo-offset-compact + 2 * $player-logo-border-width-compact);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(from 90deg, var(--player-color) var(--player-odds), var(--player-color2) var(--player-odds)) no-repeat center/100% 100%;
+  z-index: 101;
+}
+
+.odds::after {
+  content: '';
+  position: absolute;
+  top: $player-logo-border-width-compact;
+  width: calc($player-logo-size-compact + 2 * $player-logo-offset-compact);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+          var(--player-logo) no-repeat center/$player-logo-size-compact $player-logo-size-compact,
+          black;
+}
+
+.buttonsBlock {
+  width: 120px;
+}
+
+.button {
+  width: 114px;
+  height: 34px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 50%);
+  z-index: 10;
+}
+
+.betDialog {
+  z-index: 120;
+}
+
+.betDialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}

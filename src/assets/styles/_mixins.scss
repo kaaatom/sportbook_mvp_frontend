@@ -1,0 +1,81 @@
+@import "./variables";
+
+$default-flexbox-align: center;
+$default-flexbox-justify: center;
+$default-flexbox-direction: row;
+
+@mixin flexbox($align: $default-flexbox-align, $justify: $default-flexbox-justify, $direction: $default-flexbox-direction) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin footer-width($screen-width, $margin) {
+  width: calc(100vw - $margin - (100vw - $screen-width) / 2);
+}
+
+@mixin footer-button-width($screen-width, $button-width, ) {
+  width: calc($button-width + (100vw - $screen-width) / 2);
+}
+
+// Mixins for mobile-first template
+@mixin min-phone {
+  @media (min-width: $min-phone + px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: $mobile + px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet + px) {
+    @content;
+  }
+}
+
+@mixin tablet-mid {
+  @media (min-width: $tablet-mid + px) {
+    @content;
+  }
+}
+
+@mixin tablet-big {
+  @media (min-width: $tablet-big + px) {
+    @content;
+  }
+}
+
+@mixin desktop-min {
+  @media (min-width: $desktop-min + px) {
+    @content;
+  }
+}
+
+@mixin desktop-sm {
+  @media (min-width: $desktop-sm + px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop + px) {
+    @content;
+  }
+}
+
+@mixin desktop-md {
+  @media (min-width: $desktop-md + px) {
+    @content;
+  }
+}
+
+@mixin desktop-big {
+  @media (min-width: $desktop-big + px) {
+    @content;
+  }
+}

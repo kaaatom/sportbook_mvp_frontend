@@ -1,0 +1,299 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
+
+.header {
+  @include tablet {
+    width: 740px;
+  }
+
+  @include desktop-min {
+    width: 960px;
+  }
+
+  @include desktop-sm {
+    width: 1240px;
+    height: 81px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  @include desktop {
+    width: 1400px;
+  }
+
+  @include desktop-big {
+    width: 1410px;
+  }
+
+  min-width: 540px;
+  max-width: 1440px;
+  width: 540px;
+  margin: 0 auto;
+  background: $hairline;
+}
+
+.header > div {
+  display: flex;
+  justify-content: space-between;
+
+  @include tablet {
+    width: 720px;
+    margin: 0 auto;
+  }
+
+  @include desktop-min {
+    width: auto;
+    margin: 0;
+  }
+}
+
+.header > div > div {
+  width: 224px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation {
+  @include desktop-min {
+    width: 880px;
+    margin: 0 auto;
+  }
+
+  @include desktop-sm {
+    width: 816px;
+    margin: 0;
+    overflow-x: visible;
+  }
+
+  @include desktop {
+    width: 880px;
+    padding: 0 48px;
+    overflow-x: hidden;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+}
+
+.element {
+  display: block;
+  max-width: 110px;
+  flex: 1 1 100%;
+  text-transform: uppercase;
+}
+
+.link {
+  @include desktop-min {
+    width: 110px;
+  }
+
+  @include desktop-sm {
+    padding: 16px 0;
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  padding: 16px 0 0;
+  outline: none;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color $transition-time;
+}
+
+.activeButton {
+  width: 154px;
+  height: 44px;
+  background: rgba(116, 62, 232, 0.8);
+}
+
+.active {
+  color: $color-purple-01;
+  outline: revert;
+}
+
+.link:not(.active):is(:hover, :focus-visible) {
+  color: $color-root;
+}
+
+.link::before {
+  content: '';
+  display: inline-block;
+  width: 21px;
+  aspect-ratio: 1.05;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.link.active::before {
+  background-color: hsla(var(--color-purple-01), 0.8);
+}
+
+/* TODO: this is going to be reused later for Stake/Withdraw tabs */
+.link:is(.active, :hover, :focus-visible) {
+  /* 1.6rem is a magical value to cut off empty space at the bottom of the image */
+  background: url(../../assets/icons/highlight.png) no-repeat center calc(100% + 1.6rem)/100% 100%;
+}
+
+.home::before {
+  -webkit-mask-image: url(../../assets/icons/home.svg);
+  mask-image: url(../../assets/icons/home.svg);
+}
+
+.sports::before {
+  -webkit-mask-image: url(../../assets/icons/soccer.svg);
+  mask-image: url(../../assets/icons/soccer.svg);
+}
+
+.live::before {
+  -webkit-mask-image: url(../../assets/icons/play.svg);
+  mask-image: url(../../assets/icons/play.svg);
+}
+
+.favorite::before {
+  -webkit-mask-image: url(../../assets/icons/heart.svg);
+  mask-image: url(../../assets/icons/heart.svg);
+}
+
+.bets::before {
+  -webkit-mask-image: url(../../assets/icons/ticket.svg);
+  mask-image: url(../../assets/icons/ticket.svg);
+}
+
+.leaderboard::before {
+  -webkit-mask-image: url(../../assets/icons/cup.svg);
+  mask-image: url(../../assets/icons/cup.svg);
+}
+
+.staking::before {
+  -webkit-mask-image: url(../../assets/icons/box.svg);
+  mask-image: url(../../assets/icons/box.svg);
+}
+
+.pools::before {
+  -webkit-mask-image: url(../../assets/icons/people.svg);
+  mask-image: url(../../assets/icons/people.svg);
+}
+
+.info::before {
+  -webkit-mask-image: url(../../assets/icons/info.svg);
+  mask-image: url(../../assets/icons/info.svg);
+}
+
+.connectWallet {
+  width: 160px;
+  height: 44px;
+  flex-grow: 0;
+  text-transform: uppercase;
+}
+
+.logo {
+  flex-grow: 0;
+}
+
+.logoLink {
+  display: inline-block;
+  vertical-align: middle;
+  width: 10rem;
+  aspect-ratio: 2.91;
+  background: url(../../assets/icons/logo.svg) no-repeat 0/contain;
+  text-indent: -9999em;
+  text-decoration: none;
+  color: $color-root;
+}
+
+.buttonsBlock {
+  display: flex;
+  justify-content: space-between;
+}
+
+.selectsBlock {
+  position: absolute;
+  width: 221px;
+  padding: 16px;
+  margin-top: 6px;
+  display: none;
+  background: rgb(13, 4, 34);
+  border: 1px solid #4E2D93;
+}
+
+.open {
+  display: block;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 50%);
+  z-index: 10;
+}
+
+.addressWrap {
+  padding-top: 3px;
+  display: flex;
+  justify-content: center;
+}
+
+.connectWalletDialog {
+  z-index: 100;
+}
+
+.connectWalletDialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+  width: 505px;
+}
+
+.modal > div {
+  position: relative;
+  @include desktop-min {
+    padding: 0 25px 25px;
+  }
+
+  padding: 0 9px 25px;
+}
+
+.form {
+  width: 390px;
+  padding: 90px 0 50px;
+  margin: 0 auto;
+}
+
+.close {
+  @include tablet {
+    width: 76px;
+  }
+
+  position: absolute;
+  top: calc(var(--dialog-outline-corner-size) - 2px);
+  right: 1px;
+  width: 63px;
+  z-index: 100;
+}
+
+.footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.metamask {
+  padding-top: 3px;
+}

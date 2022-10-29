@@ -1,0 +1,88 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.item {
+  @include tablet {
+    width: calc(100% - 20px - 34px);
+  }
+
+  @include desktop-min {
+    width: calc(100% - 24px);
+    padding: 10px 24px 10px 0;
+  }
+
+  @include desktop-sm {
+    width: calc(100% - 20px - 34px);
+    padding: 10px 34px 10px 20px;
+  }
+
+  width: 146px;
+  min-height: 24px;
+  height: auto;
+  padding: 10px 34px 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: $color-root;
+  background-color: rgba(13, 4, 34, 0.8);
+}
+
+.item::before {
+  width: 24px;
+  aspect-ratio: 1;
+  content: '';
+  display: inline-block;
+  vertical-align: bottom;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: var(--itemImage);
+  mask-image: var(--itemImage);
+  background-color: $color-grey-02;
+}
+
+.active {
+  background-color: rgba(116, 62, 232, 0.3);
+
+  .count {
+    background-color: #3B2077;
+  }
+}
+
+.active::before {
+  background-color: $color-purple-01;
+}
+
+.name {
+  @include tablet {
+    width: 120px;
+  }
+
+  @include desktop-min {
+    width: 102px;
+  }
+
+  @include desktop-sm {
+    width: 120px;
+  }
+
+  width: 80px;
+  min-height: 22px;
+  padding-top: 2px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: $color-root;
+}
+
+.count {
+  width: 24px;
+  height: 22px;
+  padding-top: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11.2px;
+  line-height: 14px;
+  background-color: rgba(116, 62, 232, 0.3);
+}

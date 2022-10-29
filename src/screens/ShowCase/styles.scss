@@ -1,0 +1,56 @@
+.showcase {
+  padding: 0 15px;
+}
+
+/*
+ * Social
+ */
+
+ul.social {
+  display: flex;
+  justify-content: center;
+  column-gap: 1.25rem;
+}
+
+ul.social > li {
+  display: block;
+  flex-grow: 0;
+}
+
+/*
+ * Tabs
+ */
+
+ul.tabs {
+  display: flex;
+}
+
+ul.tabs > li {
+  display: block;
+  max-width: max-content;
+}
+
+ul.tabs > li:not(:first-child) {
+  margin-left: -2.5rem;
+}
+
+/*
+ * Inputs
+ */
+
+/* TODO remove this */
+form {
+  width: 20rem;
+}
+
+
+/* A presentational <div> wrapper is added to work around void elements not having pseudoelements */
+label > div {
+  --inner-corner-offset: 0.125rem; /* account for border drawn by children */
+  --inner-corner-color: hsl(var(--color-purple-03));
+
+  position: relative;
+  display: flex;
+  border: none;
+  background-color: hsla(var(--color-purple-darkest), 0.8);
+}

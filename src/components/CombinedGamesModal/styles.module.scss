@@ -1,0 +1,364 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.modal {
+  @include tablet {
+    width: 643px;
+  }
+
+  @include desktop {
+    width: 650px;
+  }
+
+  @include desktop-big {
+    width: 652px;
+  }
+
+  --dialog-outline-corner-size: 6px;
+  --dialog-outline-kerb-size: 50%;
+
+  position: relative;
+  padding: 6px 0 0 0;
+  background-color: transparent;
+
+  width: 540px;
+}
+
+.modal > div {
+  position: relative;
+  padding: 0;
+}
+
+.close {
+  @include tablet {
+    width: 76px;
+  }
+
+  position: absolute;
+  top: calc(var(--dialog-outline-corner-size) - 2px);
+  right: 1px;
+  width: 63px;
+}
+
+.header {
+  width: 292px;
+  height: 61px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+  background-image: url("../../assets/cardHeader.svg");
+  background-size: 292px 61px;
+}
+
+.modal > div > ul {
+  @include tablet {
+    margin: 40px 28px 0 25px;
+  }
+
+  @include desktop {
+    height: 421px;
+    margin: 40px 28px 0 31px ;
+  }
+
+  @include desktop-big {
+    margin: 35px 28px 0 31px;
+  }
+
+  height: 256px;
+  margin: 40px 4px 0 0;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 3px;
+  }
+}
+
+.modal > div > ul > li{
+  list-style: none;
+}
+
+.modal > div > form {
+  @include tablet {
+    width: 592px;
+    margin: 38px auto 0 25px;
+  }
+
+  @include desktop {
+    width: 593px;
+    margin: 35px 29px 0 30px;
+  }
+
+  @include desktop-big {
+    width: 595px;
+    margin: 60px 29px 0 30px;
+  }
+
+  width: 491px;
+  margin: 37px auto 0 20px;
+}
+
+.modal > div > form > p {
+  @include tablet {
+    width: 446px;
+  }
+
+  @include desktop {
+    width: 447px;
+  }
+
+  @include desktop-big {
+    width: 449px;
+  }
+
+  width: 371px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal > div > form > p > a {
+  color: $color-purple-01;
+  text-decoration: none;
+}
+
+.modal > div > form > div {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  @include tablet {
+    width: 358px;
+  }
+
+  @include desktop {
+    width: 359px;
+  }
+
+  @include desktop-big {
+    width: 361px;
+  }
+
+  width: 283px;
+}
+
+.makeBet {
+  @include tablet {
+    width: 123px;
+    margin-right: 3px;
+  }
+
+  @include desktop {
+    margin-right: 0;
+  }
+
+  width: 102px;
+  height: 49px;
+  margin-right: 5px;
+}
+
+.modal > div > div {
+  margin: 16px 25px 0;
+  display: flex;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.totalOdds {
+  @include tablet {
+    width: 260px;
+  }
+
+  @include desktop {
+    width: 261px;
+  }
+
+  width: 215px;
+}
+
+.possibleWin {
+  @include tablet {
+    gap: 9px;
+  }
+
+  color: $color-green-01;
+  display: flex;
+  gap: 12px;
+}
+
+.winNum {
+  color: $color-root;
+
+}
+
+.winNum::after {
+  content: '';
+  display: inline-block;
+  vertical-align: bottom;
+  width: 20px;
+  aspect-ratio: 1;
+  margin-left: 2px;
+  background: url(../../assets/icons/coin.svg) no-repeat 0/cover;
+}
+
+.modal > div > footer {
+  @include tablet {
+    margin: 30px 25px 0;
+  }
+
+  @include desktop {
+    margin: 30px 30px 0;
+  }
+
+  margin: 30px 20px 0;
+  padding-bottom: 36px;
+}
+
+.betInfo {
+  height: 83px;
+  margin: 0 5px;
+  padding: 0 5px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(13, 4, 34, 0.8);
+}
+
+.betInfo > span {
+  height: 1px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 49.48%, rgba(255, 255, 255, 0) 100%);
+}
+
+.betInfo > div {
+  width: 100%;
+  margin: auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.betInfo > div::before {
+  content: '';
+  display: inline-block;
+  vertical-align: center;
+  width: 48px;
+  aspect-ratio: 1;
+  background: url(../../assets/icons/uefa.svg) no-repeat 0/contain;
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.time > span {
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-right: 4px;
+}
+
+.time > time {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.match {
+  display: flex;
+
+  .player {
+    width: 88px;
+    flex-direction: row-reverse;
+    gap: 3px;
+    opacity: 1;
+    transition: opacity $animation-time;
+
+    > p {
+      text-align: left;
+      font-size: 12px;
+      line-height: 18px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    > div {
+      > p {
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+  }
+}
+
+.match > span {
+  display: flex;
+  align-items: center;
+  column-gap: 3px;
+  min-width: 40px;
+  margin: 0 10px;
+}
+
+.match > span::before,
+.match > span::after {
+  content: ' ';
+  width: 100%;
+  height: 1px;
+  flex-shrink: 1;
+  background-color: $color-grey-05;
+}
+
+.inactive {
+  opacity: 0.3;
+}
+
+.buttonsBlock {
+  width: 200px;
+}
+
+.bets {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button {
+  width: 89px;
+  height: 34px;
+  margin: 3px;
+}
+
+.homeActive {
+  background: rgba(0, 255, 120, 0.8);
+  margin: 0;
+}
+
+.awayActive {
+  background: rgba(116, 62, 232, 0.8);
+  margin: 0;
+}
+
+.amount {
+  color: white;
+  text-align: end;
+}
+
+.loaderContainer {
+  height: 500px;
+  display: flex;
+}
+
+.loader {
+  margin: auto 315px;
+}

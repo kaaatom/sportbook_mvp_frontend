@@ -1,0 +1,108 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.content {
+  @include tablet {
+    width: 712px;
+    margin-top: 95px;
+  }
+
+  @include desktop-min {
+    width: 920px;
+    margin-top: 16px;
+  }
+
+  @include desktop-sm {
+    width: 1073px;
+  }
+
+  @include desktop {
+    margin-top: 40px;
+  }
+
+  @include desktop-big {
+    width: 1410px;
+  }
+
+  width: 540px;
+  margin: 65px auto 30px;
+}
+
+.search {
+  width: 330px;
+  margin-left: auto;
+}
+
+.tableWrap {
+  @include tablet {
+    max-width: 920px;
+    margin-top: 55px;
+  }
+
+  @include desktop-min {
+    max-height: 448px;
+    margin-top: 20px;
+    padding-bottom: 0;
+  }
+
+  @include desktop-sm {
+    max-width: 100%;
+  }
+
+  @include desktop {
+    max-height: 701px;
+    margin: 20px auto 0;
+  }
+
+  @include desktop-big {
+    max-height: 678px;
+    width: 1073px;
+    margin: 65px auto 0;
+  }
+
+  position: relative;
+  max-height: 478px;
+  max-width: 540px;
+  width: 100%;
+  padding-bottom: 23px;
+  margin-top: 40px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  z-index: 1;
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 5px;
+  }
+}
+
+.addressWrap {
+  display: flex;
+}
+
+.addressWrap:hover {
+  .copy {
+    background-color: $color-root;
+  }
+}
+
+.copy {
+  content: '';
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  inset: 0;
+  cursor: pointer;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-mask: url(../../assets/icons/copy.svg) no-repeat 0/cover;
+  mask: url(../../assets/icons/copy.svg) no-repeat 0/cover;
+  transition: background-color $transition-time;
+}

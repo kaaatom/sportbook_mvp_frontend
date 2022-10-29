@@ -1,0 +1,131 @@
+html,body,div,p,h1,h2,h3,h4,h5,h6,
+ul,ol,li,dl,dt,dd,form,fieldset,caption,
+table,tr,td,th,address,blockquote,img {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+div[id="root"] {
+  scroll-behavior: smooth;
+}
+
+img, fieldset, object {
+  border: none;
+}
+
+//*, *::after, *::before {
+//  flex: 1 0 auto; /* safari bugfix */
+//  box-sizing: border-box;
+//}
+
+button, label {
+  cursor: pointer;
+}
+
+html, body {
+  height: 100%;
+}
+
+hr {
+  display: none;
+}
+
+body, button, input, table, textarea, select {
+  font: normal 1em/1.5 "Aldrich", arial, helvetica, sans-serif;
+}
+
+html {
+  font-size: 1rem; /* firefox base font size bugfix */
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-size: 0.875rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: "Microgramma D Extended";
+  src: url("assets/fonts/Microgramma D Extended Bold.otf");
+}
+
+:root {
+  --color-green-01: 148, 100%, 50%;
+  --color-green-03: 129, 57%, 34%;
+  --color-green-05: 131, 39%, 17%;
+  --color-purple-01: 259, 79%, 58%;
+  --color-purple-03: 259, 53%, 38%;
+  --color-purple-04: 258, 48%, 28%;
+  --color-purple-05: 259, 38%, 18%;
+  --color-purple-darkest: 258, 79%, 7%;
+  --color-orange-01: 37, 85%, 35%;
+  --color-orange-02: 37, 60%, 43%;
+  --color-orange-03: 37, 53%, 32%;
+  --color-orange-04: 37, 50%, 25%;
+  --color-orange-05: 36, 40%, 15%;
+  --color-grey-05: 240, 2%, 17%;
+
+  /* FIXME: background color must be opaque here, otherwise items might become illegible */
+  --color-inactive-option-bg: #0d0422;
+
+  --outer-corner-offset: -4px; /* relative to padding box */
+  --outer-corner-size: 6px;
+  --outer-corner-width: 1px;
+  --inner-corner-offset: 1px;
+  --inner-corner-size: 5px;
+
+  --player-logo-size: 60px;
+  --player-logo-offset: 5px;
+  --player-logo-border-width: 2px;
+
+  --hairline: linear-gradient(to right,
+  rgba(255, 255, 255, 0),
+  white 50%,
+  rgba(255, 255, 255, 0)
+  ) no-repeat left bottom/100% 1px;
+
+  --transition: 150ms;
+}
+
+button.medium::after,
+button.large::after,
+label > div::after,
+.select [role="combobox"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  /*
+   * XXX: Every position has to be a separate icon since the inner corners
+   * are not represented by any DOM elements and, therefore, rotation transformations are not applicable.
+   */
+  mask:
+          url(assets/icons/corners/top.svg) left var(--inner-corner-offset) top var(--inner-corner-offset),
+          url(assets/icons/corners/right.svg) right var(--inner-corner-offset) top var(--inner-corner-offset),
+          url(assets/icons/corners/bottom.svg) right var(--inner-corner-offset) bottom var(--inner-corner-offset),
+          url(assets/icons/corners/left.svg) left var(--inner-corner-offset) bottom var(--inner-corner-offset);
+  mask-repeat: no-repeat;
+  mask-size: var(--inner-corner-size);
+  -webkit-mask:
+          url(assets/icons/corners/top.svg) left var(--inner-corner-offset) top var(--inner-corner-offset),
+          url(assets/icons/corners/right.svg) right var(--inner-corner-offset) top var(--inner-corner-offset),
+          url(assets/icons/corners/bottom.svg) right var(--inner-corner-offset) bottom var(--inner-corner-offset),
+          url(assets/icons/corners/left.svg) left var(--inner-corner-offset) bottom var(--inner-corner-offset);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: var(--inner-corner-size);
+
+  background-color: var(--inner-corner-color);
+  transition: background-color var(--transition);
+}
+
+ul.tabs a[aria-current="page"]::before {
+  background-color: hsl(var(--color-green-01));
+}

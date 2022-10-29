@@ -1,0 +1,91 @@
+/*
+ * Selects
+ */
+
+select,
+.select [role="combobox"] {
+  --arrow-size: 1.125rem;
+
+  padding: 1.25rem;
+  border: 0.0625rem solid hsl(var(--color-purple-05));
+  transition: border-color var(--transition);
+  outline: none;
+  color: white;
+}
+
+select:focus,
+.select [role="combobox"]:focus {
+  border-color: hsl(var(--color-purple-01));
+}
+
+select {
+  appearance: none;
+
+  width: 100%;
+  margin: 0;
+  background:
+          content-box url(../../assets/icons/arrow-down.svg) no-repeat right center/var(--arrow-size),
+          transparent;
+}
+
+/*
+ * Custom selects
+ */
+
+.select > div {
+  position: relative;
+}
+
+.select [role="combobox"] {
+  --inner-corner-color: hsl(var(--color-purple-03));
+
+  position: relative;
+  background-color: hsla(var(--color-purple-darkest), 0.8);
+}
+
+.select [role="combobox"]::after {
+  content: '';
+  display: block;
+  float: right;
+  width: var(--arrow-size);
+  aspect-ratio: 1;
+  background: url(../../assets/icons/arrow-down.svg) no-repeat;
+  transition: transform var(--transition);
+}
+
+.select [role="combobox"][aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.select [role="listbox"] {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  border: 0.0625rem solid hsl(var(--color-purple-01));
+  transform: scaleY(0);
+  z-index: 1; /* prevent subsequent positioned elements from overlapping the listbox */
+}
+
+.select [role="combobox"][aria-expanded="true"] + [role="listbox"] {
+  transform: scaleY(1);
+}
+
+.select [role="option"] {
+  padding: 1rem;
+}
+
+.select [role="option"].active:last-child { /* unfortunately, aria-activedescendant cannot be used as a hook for styling */
+  background: hsl(var(--color-purple-04));
+}
+
+.select [role="option"].active:not(:last-child) {
+  background: var(--hairline), hsl(var(--color-purple-04));
+}
+
+.select [role="option"]:not(.active):last-child {
+  background: var(--color-inactive-option-bg);
+}
+
+.select [role="option"]:not(.active):not(:last-child) {
+  background: var(--hairline), var(--color-inactive-option-bg);
+}

@@ -1,0 +1,109 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: height $animation-time;
+  background: rgba(13, 4, 34, 0.8);
+}
+
+.current {
+  padding: 11px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid $color-purple-01;
+  cursor: pointer;
+
+  > div {
+    height: 31px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.current:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  /*
+   * XXX: Every position has to be a separate icon since the inner corners
+   * are not represented by any DOM elements and, therefore, rotation transformations are not applicable.
+   */
+  mask:
+          url(../../assets/icons/corners/top.svg) left var(--inner-corner-offset) top var(--inner-corner-offset),
+          url(../../assets/icons/corners/right.svg) right var(--inner-corner-offset) top var(--inner-corner-offset),
+          url(../../assets/icons/corners/bottom.svg) right var(--inner-corner-offset) bottom var(--inner-corner-offset),
+          url(../../assets/icons/corners/left.svg) left var(--inner-corner-offset) bottom var(--inner-corner-offset);
+  mask-repeat: no-repeat;
+  mask-size: var(--inner-corner-size);
+  -webkit-mask:
+          url(../../assets/icons/corners/top.svg) left var(--inner-corner-offset) top var(--inner-corner-offset),
+          url(../../assets/icons/corners/right.svg) right var(--inner-corner-offset) top var(--inner-corner-offset),
+          url(../../assets/icons/corners/bottom.svg) right var(--inner-corner-offset) bottom var(--inner-corner-offset),
+          url(../../assets/icons/corners/left.svg) left var(--inner-corner-offset) bottom var(--inner-corner-offset);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: var(--inner-corner-size);
+
+  background-color: #4E2D93;
+  transition: background-color var(--transition);
+}
+
+.label {
+  font-size: 12px;
+  line-height: 12px;
+  color: $color-purple-01;
+  text-transform: uppercase;
+}
+
+.currentName {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.arrow {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background-color: transparent;
+  transition: transform $animation-time ease;
+  z-index: 101;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.optionsList {
+  position: absolute;
+  top: 55px;
+  width: calc(100% - 38px);
+  height: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  background: rgba(13, 4, 34, 0.8);
+  z-index: 100;
+  overflow-y: hidden;
+  transition: height $animation-time;
+}
+
+.option {
+  font-size: 16px;
+  line-height: 150%;
+  cursor: pointer;
+}
+
+.selected {
+  color: $color-purple-01;
+}

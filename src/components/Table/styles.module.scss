@@ -1,0 +1,233 @@
+@import '../../assets/styles/mixins';
+
+.tableWrap {
+}
+
+.table {
+  border-spacing: 0;
+  position: relative;
+  width: 795px;
+
+  @include desktop-min {
+    width: 914px;
+  }
+
+  @include desktop-sm {
+    width: 1070px;
+  }
+}
+
+.thead {
+  text-align: left;
+  font-size: 16px;
+  text-transform: uppercase;
+
+  .tr {
+    .th {
+      white-space: pre;
+      padding: 20px 5px;
+
+      @include desktop-sm {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+.borderTr {
+  background: linear-gradient(270deg, rgba(58, 33, 75, 0) 0%, #3A214B 48.96%, rgba(58, 33, 75, 0) 100%);
+  position: absolute;
+  width: 100%;
+}
+
+.borderTd {
+  position: relative;
+  overflow: visible;
+  height: 1px;
+}
+
+.tbody {
+  font-size: 16px;
+
+  .tr {
+    .td {
+      transition: all $animation-time;
+      padding: 15px 5px;
+      color: $color-root;
+      white-space: nowrap;
+    }
+  }
+
+  .trHover {
+
+    .td {
+      padding: 15px 5px;
+      color: $color-white-translucent;
+    }
+    &:hover {
+
+      + .borderTr {
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 48.96%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      .td {
+        color: $color-root;
+      }
+
+      a {
+        color: $color-root;
+      }
+    }
+  }
+}
+
+.scrollBodyContainer {
+  position: relative;
+  min-height: 288px;
+  max-height: 370px;
+  max-width: 798px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  @include tablet {
+    max-height: 370px;
+    min-height: 370px;
+  }
+
+  @include desktop-min {
+    max-width: 917px;
+    max-height: 340px;
+    min-height: 340px;
+  }
+
+  @include desktop-sm {
+    max-width: 1073px;
+    max-height: 440px;
+    min-height: 440px;
+  }
+
+  @include desktop {
+    max-height: 470px;
+    min-height: 470px;
+  }
+
+  @include desktop-big {
+    max-height: 570px;
+    min-height: 570px;
+  }
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 3px;
+    height: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 3px;
+  }
+}
+
+.border1 {
+  height: 1px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 48.96%, rgba(255, 255, 255, 0) 100%);
+}
+
+.header {
+  position: sticky;
+  z-index: 99999999;
+  top: 0;
+  background: rgb(11, 3, 17);
+}
+
+.tableHeadHide {
+  opacity: 0;
+  max-height: 0;
+
+  .tr {
+
+    .th {
+      padding: 0 5px;
+
+      > div {
+        max-height: 0;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.lastItemContainer {
+  @include desktop-min {
+    max-width: 914px;
+  }
+
+  @include desktop-sm {
+    max-width: 1070px;
+  }
+
+  max-width: 795px;
+  bottom: 0;
+  right: 5px;
+  left: 0;
+  z-index: 1;
+  transition: opacity $animation-time;
+}
+
+.hideLastItem {
+  opacity: 0;
+}
+
+.showLastItem {
+  z-index: 2;
+}
+
+.loader {
+  @include flexbox();
+  height: 380px;
+
+  @include desktop-min {
+    max-height: 195px;
+    min-height: 195px;
+  }
+
+  @include desktop-sm {
+    max-height: 190px;
+    min-height: 190px;
+  }
+
+  @include desktop {
+    max-height: 250px;
+    min-height: 250px;
+  }
+
+  @include desktop-big {
+    max-height: 380px;
+    min-height: 380px;
+  }
+}
+
+.noData {
+  min-height: 288px;
+  max-height: 370px;
+
+  @include tablet {
+    max-height: 370px;
+    min-height: 370px;
+  }
+
+  @include desktop {
+    max-height: 470px;
+    min-height: 470px;
+  }
+
+  @include desktop-big {
+    max-height: 370px;
+    min-height: 370px;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}

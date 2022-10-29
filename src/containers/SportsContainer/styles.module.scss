@@ -1,0 +1,122 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.sportSelector {
+  width: 100%;
+  height: 56px;
+  overflow-y: hidden;
+  transition: height $animation-time;
+}
+
+.open {
+  height: auto;
+}
+
+.select {
+  @include desktop-min {
+    width: 100%;
+    padding: 16px 0;
+  }
+
+  @include desktop-sm {
+    width: calc(100% - 30px);
+    padding: 16px 10px 16px 20px;
+  }
+
+  width: calc(100% - 30px);
+  height: 24px;
+  padding: 16px 10px 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: $color-root;
+}
+
+.select::before {
+  width: 24px;
+  aspect-ratio: 1;
+  content: '';
+  display: inline-block;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: var(--containerImage);
+  mask-image: var(--containerImage);
+  background-color: $color-grey-02;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-transition: all $animation-time linear;
+  -webkit-transition: all $animation-time linear;
+  transition: all $animation-time linear;
+}
+
+.arrow.up {
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  transform:rotate(180deg);
+}
+
+.arrow::after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  aspect-ratio: 1;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  background-color: $color-grey-06;
+  mask-image: url("../../assets/icons/arrow.svg");
+}
+
+.active {
+  background-color: rgba(116, 62, 232, 0.3);
+
+  .arrow::after {
+    background-color: #3B2077;
+  }
+
+  .count {
+    background-color: #3B2077;
+  }
+}
+
+.active:before {
+  background-color: $color-purple-01;
+}
+
+.name {
+  @include tablet {
+    width: 120px;
+  }
+
+  @include desktop-min {
+    width: 102px;
+  }
+
+  @include desktop-sm {
+    width: 120px;
+  }
+
+  width: 80px;
+  height: 22px;
+  padding-top: 2px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: $color-root;
+}
+
+.count {
+  width: 24px;
+  height: 22px;
+  padding-top: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11.2px;
+  line-height: 14px;
+  background-color: $color-grey-06;
+}

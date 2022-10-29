@@ -1,0 +1,135 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.container {
+  min-width: 576px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  @include tablet {
+    width: 732px;
+    margin-top: 20px;
+  }
+
+  @include desktop-min {
+    width: 960px;
+  }
+
+  @include desktop-sm {
+    width: 1140px;
+    margin-top: 18px;
+  }
+
+  @include desktop {
+    width: 1290px;
+    margin-top: 50px;
+  }
+
+  @include desktop-big {
+    width: 1410px;
+    margin: 44px auto 0;
+  }
+
+  width: 540px;
+  margin: 22px auto 29px;
+}
+
+.top {
+  @include desktop-min {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.tabs {
+  @include tablet {
+    margin-left: 10px;
+  }
+
+  @include desktop-min {
+    margin-left: 0;
+  }
+
+  @include desktop-sm {
+    margin-left: 10px;
+  }
+
+  @include desktop {
+    margin-left: 0;
+  }
+
+  @include desktop-big {
+    margin-left: 10px;
+  }
+
+  margin-left: 8px;
+  display: flex;
+}
+
+.tabs > li {
+  list-style-type: none;
+}
+
+.tabs > li:not(:first-child) {
+  @include tablet {
+    margin-left: -46px;
+  }
+
+  @include desktop {
+    margin-left: -40px;
+  }
+
+  margin-left: -57px;
+}
+
+.form {
+  @include tablet {
+    margin-top: 20px;
+  }
+
+  @include desktop-min {
+    margin: 0;
+  }
+
+  @include desktop-sm {
+    width: 400px;
+  }
+
+  @include desktop {
+    width: 410px;
+  }
+
+  width: 330px;
+  margin: 10px 0 0 auto;
+}
+
+.form:focus-within {
+  width: 479px;
+}
+
+.matches {
+  @include tablet {
+    margin-top: 65px;
+  }
+
+  @include desktop-min {
+    margin-top: 15px;
+  }
+
+  @include desktop-sm {
+    margin-top: 10px;
+  }
+
+  @include desktop {
+    margin-top: 42px;
+  }
+
+  @include desktop-big {
+    margin-top: 118px;
+  }
+
+  margin-top: 53px;
+}

@@ -1,0 +1,311 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.selectorLoaderWrapper {
+  @include tablet {
+    width: 240px;
+  }
+
+  @include desktop-min {
+    width: 192px;
+    height: 490px;
+  }
+
+  @include desktop-sm {
+    width: 240px;
+  }
+
+  @include desktop-big {
+    height: 692px;
+  }
+
+  width: 200px;
+  height: 607px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  @include tablet {
+    width: 732px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  @include desktop-min {
+    width: 960px;
+  }
+
+  @include desktop-sm {
+    width: 1140px;
+    margin-top: 18px;
+  }
+
+  @include desktop {
+    width: 1410px;
+    padding-right: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  @include desktop-big {
+    margin: 44px auto 35px;
+  }
+
+  width: 540px;
+  margin: 15px auto 29px;
+}
+
+.top {
+  width: 100%;
+}
+
+.tabs {
+  @include tablet {
+    margin-left: 10px;
+  }
+
+  @include desktop-min {
+    margin-left: 0;
+  }
+
+  @include desktop-sm {
+    margin-left: 10px;
+  }
+
+  @include desktop {
+    margin-left: 30px;
+  }
+
+  @include desktop-big {
+    margin-left: 10px;
+  }
+
+  margin-left: 8px;
+  display: flex;
+}
+
+.tabs > li {
+  list-style-type: none;
+}
+
+.tabs > li:not(:first-child) {
+  @include tablet {
+    margin-left: -46px;
+  }
+
+  @include desktop {
+    margin-left: -40px;
+  }
+
+  margin-left: -57px;
+}
+
+.top > section {
+  @include tablet {
+    display: block;
+  }
+
+  @include desktop-min {
+    display: flex;
+  }
+
+  @include desktop-big {
+    margin-top: 15px;
+  }
+
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.allSports {
+  @include tablet {
+    margin-top: 9px;
+    width: auto;
+    display: block;
+  }
+
+  @include desktop-min {
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+  }
+
+  @include desktop-sm {
+    padding-left: 20px;
+  }
+
+  width: 180px;
+  padding-left: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: flex;
+  align-items: end;
+}
+
+.form {
+  @include tablet {
+    margin-top: 20px;
+    margin-left: auto;
+  }
+
+  @include desktop-min {
+    margin: 0;
+  }
+
+  @include desktop-sm {
+    width: 400px;
+  }
+
+  @include desktop {
+    width: 410px;
+  }
+
+  width: 330px;
+}
+
+.matches {
+  @include tablet {
+    justify-content: normal;
+  }
+
+  @include desktop-min {
+    margin-top: 20px;
+  }
+
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.selector {
+  @include tablet {
+    width: 240px;
+  }
+
+  @include desktop-min {
+    width: 192px;
+    max-height: 490px;
+  }
+
+  @include desktop-sm {
+    width: 240px;
+  }
+
+  @include desktop-big {
+    max-height: 692px;
+  }
+
+  width: 200px;
+  max-height: 607px; //328?
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 3px;
+  }
+}
+
+.matchesLoaderWrapper {
+  @include tablet {
+    margin-left: 100px;
+  }
+
+  @include desktop-min {
+    width: 730px;
+    height: 450px;
+    margin-left: 25px;
+  }
+
+  @include desktop-sm {
+    width: 750px;
+    margin-left: 74px;
+  }
+
+  @include desktop {
+    width: 1140px;
+    height: 552px;
+    margin-left: 30px;
+  }
+
+  @include desktop-big {
+    height: 692px;
+  }
+
+  width: 328px;
+  height: 607px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.matchList {
+  @include tablet {
+    margin-left: 100px;
+  }
+
+  @include desktop-min {
+    width: 730px;
+    min-height: 420px;
+    max-height: 450px;
+    margin-left: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-auto-rows: 1fr;
+    grid-row-gap: 20px;
+  }
+
+  @include desktop-sm {
+    width: 750px;
+    margin-left: 74px;
+    grid-column-gap: 20px;
+  }
+
+  @include desktop {
+    width: 1140px;
+    max-height: 552px;
+    margin-left: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include desktop-big {
+    max-height: 692px;
+  }
+
+  width: 328px;
+  max-height: 607px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    background: transparent;
+    width: 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  &::-webkit-resizer {
+    width: 0;
+  }
+}
+
+.matchList > article:not(:last-child) {
+  @include desktop-min {
+    margin-bottom: 0;
+  }
+
+  margin-bottom: 25px;
+}

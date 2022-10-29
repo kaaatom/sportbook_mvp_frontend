@@ -1,0 +1,57 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.tab {
+  @include tablet {
+    min-width: 183px;
+    max-width: 198px;
+    padding: 18px 0 18px 32px;
+    height: 21px;
+  }
+
+  @include desktop-sm {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  position: relative;
+  min-width: 150px;
+  height: 15px;
+  padding: 10.18px 0 13.58px 21px;
+  font-weight: 700;
+  font-family: "Microgramma D Extended", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Tab background has to be a pseudo-element, otherwise mask will affect the text as well. */
+.tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-color: $color-purple-01;
+  -webkit-mask: url(../../assets/icons/tab.svg) no-repeat 0/cover;
+  mask: url(../../assets/icons/tab.svg) no-repeat 0/cover;
+}
+
+.tab > a {
+  text-decoration: none;
+  color: white;
+}
+
+.tab > a > span {
+  cursor: pointer;
+}
+
+.active::before {
+  background-color: $color-green-01;
+}

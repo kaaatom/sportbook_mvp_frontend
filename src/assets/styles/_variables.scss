@@ -1,0 +1,63 @@
+
+
+// Colors
+$color-root: #fff;
+$color-white-translucent: rgba(255, 255, 255, 0.5);
+$color-purple-thumb: #7646BE;
+$color-green-01: #00FF78;
+$color-green-03: #268935;
+$color-green-05: #1A3B20;
+$color-purple-01: #743EE8;
+$color-purple-03: #4E2D93;
+$color-purple-04: #3A256A;
+$color-purple-05: #271C3F;
+$color-purple-06: #1E182A;
+$color-purple-darkest: 	#0C0420;
+$color-orange-01: #A56B0D;
+$color-orange-02: #AF7D2C;
+$color-orange-03: #7D5C26;
+$color-orange-04: #604720;
+$color-orange-05: #362917;
+$color-grey-02: #636366;
+$color-grey-05: #2C2C2E;
+$color-grey-06: #1C1C1E;
+$hairline: linear-gradient(to right,
+        rgba(255, 255, 255, 0),
+        white 50%,
+        rgba(255, 255, 255, 0)
+) no-repeat left bottom/100% 1px;
+
+// Bug color?
+$color-inactive-option-bg: #0d0422;
+
+// Corners
+$outer-corner-offset: -4px; /* relative to padding box */
+$outer-corner-size: 6px;
+$outer-corner-width: 1px;
+$inner-corner-offset: 1px;
+$inner-corner-size: 5px;
+
+// Logo size
+$player-logo-size: 60px;
+$player-logo-offset: 5px;
+$player-logo-border-width: 2px;
+$player-logo-size-compact: 26px;
+$player-logo-offset-compact: 2px;
+$player-logo-border-width-compact: 1px;
+
+$transition-time: 150ms;
+
+// Animation
+$animation-time: 0.3s;
+
+// window min-width
+$min-phone: 480;
+$mobile: 576;
+$tablet: 768;
+$tablet-mid: 900;
+$tablet-big: 992;
+$desktop-min: 1024;
+$desktop-sm: 1280;
+$desktop: 1440;
+$desktop-md: 1600;
+$desktop-big: 1920;

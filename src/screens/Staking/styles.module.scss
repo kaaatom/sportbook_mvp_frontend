@@ -1,0 +1,355 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.content {
+  @include tablet {
+    width: 588px;
+  }
+
+  @include desktop-sm {
+    width: 1140px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include desktop {
+    width: 1290px;
+  }
+
+  @include desktop-big {
+    width: 1344px;
+  }
+
+  width: 540px;
+  margin: 30px auto 30px;
+}
+
+.sectionOne {
+  @include desktop-sm {
+    width: 552px;
+  }
+
+  @include desktop {
+    width: 630px;
+  }
+}
+
+.sectionTwo {
+  @include desktop-sm {
+    width: 578px;
+  }
+
+  @include desktop {
+    width: 630px;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  @include desktop-min {
+    width: 300px;
+  }
+
+  width: 330px;
+}
+
+.addressWrap {
+  display: flex;
+}
+
+.tableWrap {
+  @include desktop {
+    margin-top: 30px;
+  }
+
+  width: 100%;
+  margin-top: 20px;
+  overflow-y: hidden;
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 5px;
+  }
+}
+
+.table {
+  @include tablet {
+    width: 588px;
+  }
+
+  @include desktop-sm {
+    width: 100%;
+  }
+
+  width: 540px;
+}
+
+.contentScroll {
+  @include desktop-sm {
+    max-height: 541px;
+  }
+
+  @include desktop {
+    max-height: 554px;
+  }
+
+  @include desktop-big {
+    max-height: 598px;
+  }
+}
+
+.chartWrap {
+  @include desktop-sm {
+    margin-top: 13px;
+  }
+
+  margin-top: 40px;
+}
+
+.chart {
+  @include desktop-sm {
+    margin-top: 40px;
+  }
+
+  @include desktop {
+    margin-top: 45px;
+    height: 160px !important;
+  }
+
+  height: 150px !important;
+  margin-top: 6px;
+}
+
+.statsBlock {
+  @include desktop-sm {
+    margin-top: 90px;
+  }
+
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.block {
+  @include tablet {
+    width: 236px;
+  }
+
+  @include desktop {
+    width: 300px;
+  }
+
+  width: 215px;
+}
+
+.block > h3 {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.item {
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.item > p {
+  @include tablet {
+    width: 104px;
+  }
+
+  @include desktop {
+    width: 140px;
+  }
+
+  width: 93px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tabs {
+  @include desktop-sm {
+    margin-top: 20px;
+  }
+
+  display: flex;
+}
+
+.tab {
+  width: 109px;
+  height: 21px;
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  outline: none;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color $animation-time;
+}
+
+.active {
+  color: $color-purple-01;
+  outline: revert;
+}
+
+.tab:not(.active):is(:hover, :focus-visible) {
+  color: $color-root;
+}
+
+.tab:is(.active, :hover, :focus-visible) {
+  background: url(../../assets/icons/highlight.png) no-repeat center calc(100% + 16px)/100% 100%;
+}
+
+.inputBlock {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.inputBlock > section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input {
+  @include tablet {
+    width: 416px;
+  }
+
+  @include desktop {
+    width: 458px;
+  }
+
+  width: 364px;
+}
+
+.button {
+  @include desktop {
+    height: 57px;
+  }
+
+  width: 108px;
+  height: 49px;
+  text-transform: uppercase;
+}
+
+.modal {
+  @include tablet {
+    width: 643px;
+  }
+
+  @include desktop {
+    width: 650px;
+  }
+
+  @include desktop-big {
+    width: 652px;
+  }
+
+  --dialog-outline-corner-size: 6px;
+  --dialog-outline-kerb-size: 50%;
+
+  position: relative;
+  padding: 6px 0 0 0;
+  background-color: transparent;
+
+  width: 505px;
+}
+
+.modal > div {
+  position: relative;
+  padding: 0;
+}
+
+.close {
+  @include tablet {
+    width: 76px;
+  }
+
+  position: absolute;
+  top: calc(var(--dialog-outline-corner-size) - 2px);
+  right: 1px;
+  width: 63px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 50%);
+}
+
+.transactionDialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.header {
+  height: 66px;
+  padding: 57px 0 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header > h3 {
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.header > p {
+  font-size: 14px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+}
+
+.header > p:after {
+  content: '';
+  display: inline-block;
+  vertical-align: bottom;
+  width: 20px;
+  aspect-ratio: 1;
+  margin-left: 2px;
+  background: url(../../assets/icons/coin.svg) no-repeat 0/cover;
+}
+
+.separator {
+  width: 384px;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 49.48%, rgba(255, 255, 255, 0) 100%);
+}
+
+.buttonBlock {
+  width: 383px;
+  height: 60px;
+  padding: 30px 0 65px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}

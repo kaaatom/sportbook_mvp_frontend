@@ -1,0 +1,256 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.large::before {
+  content: '';
+  position: absolute;
+  inset: $outer-corner-offset;
+  pointer-events: none;
+
+  background:
+    linear-gradient(to right, var(--outer-corner-color) $outer-corner-width, transparent $outer-corner-width) 0 0,
+    linear-gradient(to right, var(--outer-corner-color) $outer-corner-width, transparent $outer-corner-width) 0 100%,
+    linear-gradient(to left, var(--outer-corner-color) $outer-corner-width, transparent $outer-corner-width) 100% 0,
+    linear-gradient(to left, var(--outer-corner-color) $outer-corner-width, transparent $outer-corner-width) 100% 100%,
+    linear-gradient(to bottom, var(--outer-corner-color) $outer-corner-width, transparent $outer-corner-width) 0 0,
+    linear-gradient(to bottom, var(--outer-corner-color) $outer-corner-width, transparent $outer-corner-width) 100% 0,
+    linear-gradient(to top, var(--outer-corner-color) $outer-corner-width, transparent $outer-corner-width) 0 100%,
+    linear-gradient(to top, var(--outer-corner-color) $outer-corner-width, transparent $outer-corner-width) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: $outer-corner-size $outer-corner-size;
+}
+
+/*
+ * Buttons
+ */
+
+.close {
+  appearance: none;
+
+  width: 7.9375rem;
+  aspect-ratio: 2.49;
+  padding: 0;
+  border: none;
+  background:
+          url(../../assets/icons/close.svg) no-repeat 0/contain,
+          transparent;
+  text-indent: -9999em;
+}
+
+.medium,
+.large {
+  appearance: none;
+
+  position: relative;
+  border-width: 0.0625rem;
+  border-style: solid;
+  outline: none;
+  color: white;
+  font-size: 14px;
+
+  transition:
+          background-color $transition-time,
+          border-color $transition-time;
+}
+
+.medium.green,
+.large.green {
+  --button-color: var(--color-green-01);
+  --button-color-03: var(--color-green-03);
+  --button-color-05: var(--color-green-05);
+  --outer-corner-color: hsl(var(--color-green-01));
+  --inner-corner-color: hsl(var(--color-green-01));
+}
+
+.medium.purple,
+.large.purple {
+  --button-color: var(--color-purple-01);
+  --button-color-03: var(--color-purple-03);
+  --button-color-05: var(--color-purple-05);
+  --outer-corner-color: hsl(var(--color-purple-01));
+  --inner-corner-color: hsl(var(--color-purple-01));
+}
+
+.medium.orange,
+.large.orange {
+  --button-color: var(--color-orange-01);
+  --button-color-03: var(--color-orange-03);
+  --button-color-05: var(--color-orange-05);
+  --outer-corner-color: hsl(var(--color-orange-01));
+  --inner-corner-color: hsl(var(--color-orange-01));
+}
+
+.medium {
+  width: 140px;
+  height: 50px;
+  border-color: hsl(var(--button-color-03));
+  background-color: hsl(var(--button-color-05));
+}
+
+.medium:hover,
+.settings:hover,
+.medium:focus-visible,
+.settings:focus-visible {
+  border-color: hsl(var(--button-color));
+  background-color: hsl(var(--button-color-03));
+}
+
+.medium:active,
+.settings:active {
+  border-color: hsl(var(--button-color));
+  background-color: hsl(var(--button-color));
+}
+
+.large {
+  --inner-corner-size: 0.1875rem;
+
+  /* account for outer corners */
+  width: 144px;
+  height: 54px;
+  margin: calc(-1 * var(--outer-corner-offset) - 1px); /* offset is relative to padding box, so need to subtract border width */
+  border-color: hsl(var(--button-color));
+  box-shadow: inset 0 0 16px hsla(var(--button-color), 0.3);
+  background-color: hsla(var(--button-color), 0.1);
+}
+
+.large:hover,
+.large:focus-visible {
+  background-color: hsla(var(--button-color), 0.3);
+}
+
+.large:active {
+  background-color: hsla(var(--button-color), 0.8);
+}
+
+.metamask > span::before {
+  content: '';
+  display: inline-block;
+  vertical-align: bottom;
+  width: 1.6875rem;
+  aspect-ratio: 1.08;
+  margin-right: 0.625rem;
+  background: url(../../assets/icons/metamask.svg) no-repeat 0/contain;
+}
+
+.favorite {
+  width: 33px;
+  height: 33px;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.favorite::after {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  width: 33px;
+  aspect-ratio: 1;
+  background: url(../../assets/icons/heart.svg) no-repeat 0/contain;
+}
+
+.settings {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: rgba(116, 62, 232, 0.1);
+  border: 1px solid $color-purple-01;
+  box-shadow: inset 0 0 16px rgba(116, 62, 232, 0.3);
+  transition:
+          background-color $transition-time,
+          border-color $transition-time;
+
+  --button-color: var(--color-purple-01);
+  --button-color-03: var(--color-purple-03);
+  --button-color-05: var(--color-purple-05);
+}
+
+.settings::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  aspect-ratio: 1;
+  background: url(../../assets/icons/setting.svg) no-repeat 0/contain;
+}
+
+.footerSmall {
+  width: 220.5px;
+  height: 60px;
+  background-color: transparent;
+  background: url(../../assets/smallRect.svg) no-repeat 0/cover;
+  border: 0;
+  margin-right: -34px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.footerBig {
+  @include tablet {
+    @include footer-button-width(768px, 239px);
+  }
+
+  @include desktop-min {
+    @include footer-button-width(1024px, 239px);
+  }
+
+  @include desktop-sm {
+    @include footer-button-width(1280px, 239px);
+  }
+
+  @include desktop {
+    @include footer-button-width(1440px, 239px);
+  }
+
+  @include desktop-big {
+    min-width: 346px;
+    @include footer-button-width(576px, 346px);
+  }
+
+  min-width: 239px;
+  @include footer-button-width(576px, 239px);
+  height: 60px;
+  background-color: transparent;
+  background: url(../../assets/bigRect.svg) no-repeat 0/cover;
+  border: 0;
+  padding-right: 0;
+  top: -1px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.footerBig > span {
+  margin-right: 187px;
+}
+
+.closeCircle {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.closeCircle::after {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  width: 24px;
+  aspect-ratio: 1;
+  background: url(../../assets/icons/close-circle.svg) no-repeat 0/contain;
+}
+
+.empty {
+  border: 0;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color $animation-time;
+}
+
+.empty:hover,
+.empty:focus-visible {
+  color: $color-root;
+}
+
+.transparent {
+  background-color: transparent;
+}

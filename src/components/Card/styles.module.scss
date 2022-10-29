@@ -1,0 +1,482 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.card {
+  @include desktop-min {
+    width: 410px;
+  }
+
+  width: 328px;
+}
+
+.card > div {
+  position: relative;
+  @include desktop-min {
+    padding: 0 25px 25px;
+  }
+
+  padding: 0 9px 25px;
+}
+
+.card > div::before {
+  background-color: black !important;
+}
+
+.card.small {
+  @include desktop-min {
+    width: 360px;
+
+    > div {
+      padding: 20px 23px;
+    }
+
+    .time {
+      margin-top: 15px;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .time > span {
+      font-size: 12px;
+    }
+
+    .time > time {
+      font-size: 12px;
+    }
+
+    .match > span {
+      min-width: 60px;
+      font-size: 11px;
+    }
+
+    .player {
+      width: 130px;
+    }
+
+    .bets {
+      margin-top: 15px;
+    }
+
+    footer {
+      margin-top: 14px;
+    }
+  }
+}
+
+.card.modal {
+  width: 470px;
+
+  > div {
+    padding: 28px 35px 4px;
+  }
+
+  .player {
+    width: 170px;
+    align-items: center;
+  }
+}
+
+.time {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.time > span {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.time > time {
+  font-size: 1rem;
+}
+
+.match {
+  display: flex;
+  margin-top: 16px;
+  text-transform: uppercase;
+}
+
+.match > span {
+  @include desktop-min {
+    min-width: 80px;
+  }
+
+  display: flex;
+  align-items: center;
+  column-gap: 3.65px;
+  min-width: 48px;
+}
+
+.match > span::before,
+.match > span::after {
+  content: ' ';
+  width: 100%;
+  height: 1px;
+  flex-shrink: 1;
+  background-color: $color-grey-05;
+}
+
+.card.normal {
+  .player {
+    width: 140px;
+  }
+}
+
+.bets {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 22px;
+}
+
+.wagers {
+  display: flex;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.wagers:after {
+  content: '';
+  display: inline-block;
+  vertical-align: bottom;
+  width: 20px;
+  aspect-ratio: 1;
+  margin-left: 2px;
+  background: url(../../assets/icons/coin.svg) no-repeat 0/contain;
+}
+
+.modal > div > .wagers {
+  margin: 40px 0 16px;
+  justify-content: space-between;
+  gap: 0;
+  font-size: 14px;
+  line-height: 15px;
+  text-transform: none;
+  color: $color-root;
+}
+
+.modal > div > .wagers:after {
+  display: none;
+}
+
+.list {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.list.closed {
+  color: $color-purple-01;
+}
+
+.list.closed:after {
+  content: '';
+  display: inline-block;
+  vertical-align: bottom;
+  width: 8px;
+  height: 15px;
+  margin-left: 10px;
+  background: url(../../assets/icons/rectangle.svg) no-repeat 0/contain;
+}
+
+.wagers br {
+  display: none;
+}
+
+.total {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total > p {
+  padding-top: 3px;
+}
+
+.possible > p {
+  padding-top: 3px;
+}
+
+.possible > p > span {
+  padding-top: 3px;
+}
+
+.possible {
+  display: flex;
+  color: $color-green-01;
+}
+
+.possible:after {
+  content: '';
+  display: inline-block;
+  vertical-align: bottom;
+  width: 20px;
+  aspect-ratio: 1;
+  margin-left: 2px;
+  background: url(../../assets/icons/coin.svg) no-repeat 0/contain;
+}
+
+.title {
+  padding-top: 3px;
+}
+
+.amount {
+  padding-top: 3px;
+  margin-left: 7.3px;
+  color: white;
+  text-align: end;
+}
+
+.bets {
+  margin-top: 32px;
+}
+
+.bets button {
+  width: 138px;
+  text-transform: uppercase;
+}
+
+.modal > div > .bets > button {
+  width: 158px;
+}
+
+.card footer {
+  margin-top: 1.125rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card footer > * {
+  flex: 0 0 auto;
+}
+
+.footer {
+  margin-top: 25px;
+}
+
+.twitch::before {
+  content: '';
+  display: inline-block;
+  vertical-align: bottom;
+  width: 33px;
+  aspect-ratio: 1;
+  margin-right: 8px;
+  background: url(../../assets/icons/social/twitch.svg) no-repeat 0/contain;
+}
+
+.twitch {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.test-div {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background-color: red;
+  clip-path: polygon(
+                  evenodd,
+                  0 0,
+                  100% 0
+  )
+}
+
+.header {
+  width: 195px;
+  height: 51px;
+  padding: 5px 52.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 12px;
+  line-height: 22px;
+  text-transform: uppercase;
+  background-image: url("../../assets/cardHeader.svg");
+  background-size: 300px 61px;
+  background-position: center center;
+}
+
+.image {
+  width: 37px;
+  height: 37px;
+  margin-right: 8px;
+}
+
+.test-div::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  background-color: rgba(0, 255, 255, 0.5);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 50%);
+  z-index: 10;
+}
+
+.betDialog {
+  z-index: 100;
+}
+
+.betDialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.tabs {
+  @include tablet {
+    width: 470px;
+    margin: 0;
+    justify-content: center;
+  }
+
+  width: 218px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.tab {
+  width: 109px;
+  height: 21px;
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  outline: none;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color $animation-time;
+}
+
+.active {
+  color: $color-purple-01;
+  outline: revert;
+}
+
+.tab:not(.active):is(:hover, :focus-visible) {
+  color: $color-root;
+}
+
+.tab:is(.active, :hover, :focus-visible) {
+  background: url(../../assets/icons/highlight.png) no-repeat center calc(100% + 16px)/100% 100%;
+}
+
+.modalContainer {
+  @include tablet {
+    display: flex;
+    gap: 19px;
+  }
+}
+
+.close {
+  @include tablet {
+    width: 76px;
+  }
+
+  position: absolute;
+  top: calc(var(--dialog-outline-corner-size) - 2px);
+  right: 1px;
+  width: 63px;
+  z-index: 100;
+}
+
+.itemList {
+  @include tablet {
+    position: relative;
+    width: 238px;
+    max-height: 620px;
+  }
+
+  position: absolute;
+  max-height: 69px;
+  width: 470px;
+  margin-top: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 3px;
+  }
+}
+
+.item {
+  padding-top: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color $animation-time;
+}
+
+.item > section {
+  display: flex;
+  gap: 5px;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.item > section > p {
+  padding-top: 3px;
+}
+
+.item > section > section > p {
+  padding-top: 3px;
+}
+
+.item > section > section > div > p {
+  padding-top: 3px;
+}
+
+.item:hover,
+.item:focus-visible {
+  color: $color-root;
+
+  .separator {
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 49.48%, rgba(255, 255, 255, 0) 100%);
+  }
+}
+
+.firstLine {
+  display: flex;
+}
+
+.firstLine:after {
+  content: '';
+  display: inline-block;
+  vertical-align: bottom;
+  width: 20px;
+  aspect-ratio: 1;
+  margin-left: 2px;
+  background: url(../../assets/icons/coin.svg) no-repeat 0/contain;
+}
+
+.id {
+  width: 17px;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  margin-top: 10px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 49.48%, rgba(255, 255, 255, 0) 100%);
+  transition: background $animation-time;
+}

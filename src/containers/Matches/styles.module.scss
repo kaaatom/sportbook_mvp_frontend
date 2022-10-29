@@ -1,0 +1,50 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  @include tablet {
+    width: 686px;
+  }
+
+  @include desktop-min {
+    width: 850px;
+  }
+
+  @include desktop-big {
+    width: 1290px;
+  }
+
+  width: 328px;
+  justify-content: space-between;
+}
+
+.next {
+  -webkit-mask: url(../../assets/icons/rightArrow.svg) no-repeat 0/cover;
+  mask: url(../../assets/icons/rightArrow.svg) no-repeat 0/cover;
+}
+
+.prev {
+  -webkit-mask: url(../../assets/icons/leftArrow.svg) no-repeat 0/cover;
+  mask: url(../../assets/icons/leftArrow.svg) no-repeat 0/cover;
+}
+
+.next,
+.prev {
+  width: 30px;
+  height: 52px;
+  background-color: #2C2C2E;
+  transition-duration: 0.15s;
+}
+
+.next:hover,
+.prev:hover {
+  cursor: pointer;
+  background-color: $color-purple-01;
+  transition: background-color 0.15s;
+}

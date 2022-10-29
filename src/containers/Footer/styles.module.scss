@@ -1,0 +1,68 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.container {
+  @include tablet {
+    min-width: 744px;
+    @include footer-width(768px, 24px);
+  }
+
+  @include desktop-min {
+    min-width: 992px;
+    @include footer-width(1024px, 32px);
+  }
+
+  @include desktop-sm {
+    min-width: 1210px;
+    @include footer-width(1280px, 70px);
+  }
+
+  @include desktop {
+    min-width: 1365px;
+    @include footer-width(1440px, 75px);
+  }
+
+  @include desktop-big {
+    min-width: 1850px;
+    @include footer-width(1920px, 255px);
+  }
+
+  min-width: 546px;
+  @include footer-width(576px, 30px);
+  height: 60px;
+  margin: auto 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-content: end;
+}
+
+.socialContainer {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.marker {
+  list-style-type: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 50%);
+  z-index: 10;
+}
+
+.modal {
+  z-index: 100;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}

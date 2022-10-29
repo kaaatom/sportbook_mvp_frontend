@@ -1,0 +1,98 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.card {
+  --dialog-outline-corner-size: 6px;
+  --dialog-outline-kerb-size: 50%;
+
+  position: relative;
+  padding: 6px 0 0 0;
+  background-color: transparent;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 var(--dialog-outline-corner-size) auto var(--dialog-outline-corner-size);
+  height: calc(3 * var(--dialog-outline-corner-size));
+  /* outer outline + kerb + inner outline */
+  /* FIXME: colors do not match those in Figma because the outline has to be opaque */
+  background: linear-gradient(to bottom, #2d1c51, #170c2d);
+  /* outer outline */
+  clip-path: polygon(0 100%,
+    /* start from the left bottom corner */
+
+          var(--dialog-outline-corner-size) calc(100% - 2 * var(--dialog-outline-corner-size)),
+    /* align with kerb top level */
+
+    /* align with kerb left corner */
+          calc((100% - var(--dialog-outline-kerb-size)) / 2 - 3 * var(--dialog-outline-corner-size) / 2) calc(100% - 2 * var(--dialog-outline-corner-size)),
+
+          calc(calc(100% - var(--dialog-outline-kerb-size)) / 2 - var(--dialog-outline-corner-size) / 2) 0,
+    /* align with kerb start */
+
+          calc(calc(100% + var(--dialog-outline-kerb-size) + var(--dialog-outline-corner-size)) / 2) 0,
+    /* align with kerb end */
+
+    /* align with kerb right corner */
+          calc(calc(100% + var(--dialog-outline-kerb-size)) / 2 + 3 * var(--dialog-outline-corner-size) / 2) var(--dialog-outline-corner-size),
+
+          calc(100% - var(--dialog-outline-corner-size)) var(--dialog-outline-corner-size),
+    /* align with kerb top level */
+
+          100% 100%
+    /* end at right bottom corner */
+  );
+}
+
+.card > div {
+  background-color: $color-purple-03;
+  /* filter:
+      drop-shadow(0.0625rem 0 0 hsl(var(--color-purple-03)))
+      drop-shadow(-0.0625rem 0 0 hsl(var(--color-purple-03)))
+      drop-shadow(0 0.0625rem 0 hsl(var(--color-purple-03)))
+      drop-shadow(0 -0.0625rem 0 hsl(var(--color-purple-03))); */
+  clip-path: polygon(0 calc(2 * var(--dialog-outline-corner-size)),
+    /* start from the leftmost top corner */
+
+          var(--dialog-outline-corner-size) var(--dialog-outline-corner-size),
+    /* leftmost top corner */
+
+    /* from leftmost top corner up to left kerb corner */
+          calc(calc(100% - var(--dialog-outline-kerb-size)) / 2 - var(--dialog-outline-corner-size)) var(--dialog-outline-corner-size),
+
+          calc(calc(100% - var(--dialog-outline-kerb-size)) / 2) 0,
+    /* left kerb corner */
+
+          calc(calc(100% + var(--dialog-outline-kerb-size)) / 2) 0,
+    /* kerb */
+
+    /* right kerb corner */
+          calc(calc(100% + var(--dialog-outline-kerb-size)) / 2 + var(--dialog-outline-corner-size)) var(--dialog-outline-corner-size),
+
+          calc(100% - var(--dialog-outline-corner-size)) var(--dialog-outline-corner-size),
+    /* from right kerb corner up to rightmost top corner */
+
+          100% calc(2 * var(--dialog-outline-corner-size)),
+    /* rightmost corner */
+
+          100% calc(100% - var(--dialog-outline-corner-size)),
+    /* from rightmost top corner up to rightmost bottom corner */
+          calc(100% - var(--dialog-outline-corner-size)) 100%,
+    /* rightmost bottom corner */
+          var(--dialog-outline-corner-size) 100%,
+    /* from rightmost bottom corner up to leftmost bottom corner */
+          0 calc(100% - var(--dialog-outline-corner-size))
+    /* leftmost bottom corner */
+  );
+}
+
+.card > div::before {
+  content: '';
+  position: absolute;
+  /* inset: 0; */
+  inset: 1px;
+  z-index: -1;
+  background-color: $color-purple-darkest;
+  clip-path: inherit;
+}

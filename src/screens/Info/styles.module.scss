@@ -1,0 +1,351 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.content {
+  @include tablet {
+    width: 720px;
+  }
+
+  @include desktop-min {
+    width: 960px;
+    margin-bottom: 20px;
+  }
+
+  @include desktop-sm {
+    width: 1140px;
+  }
+
+  @include desktop {
+    width: 1290px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  @include desktop-big {
+    width: 1400px;
+    margin-top: 48px;
+  }
+
+  width: 540px;
+  margin: 16px auto 30px;
+}
+
+.tabs {
+  @include tablet {
+    margin-left: 10px;
+  }
+
+  @include desktop-min {
+    margin-left: 0;
+  }
+
+  @include desktop-sm {
+    margin-left: 10px;
+  }
+
+  @include desktop {
+    margin-left: 10px;
+  }
+
+  margin-left: 8px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tabs > li {
+  list-style-type: none;
+}
+
+.tabs > li:not(:first-child) {
+  @include tablet {
+    margin-left: -46px;
+  }
+
+  @include desktop {
+    margin-left: -40px;
+  }
+
+  margin-left: -43px;
+}
+
+.tabs > li:nth-child(5) {
+  @include desktop-sm {
+    margin-left: 450px;
+  }
+
+  @include desktop-min {
+    margin-left: 220px;
+  }
+
+  margin-left: 40px;
+};
+
+.tab {
+  @include tablet {
+    padding: 18px 0 18px 32px;
+    height: 21px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @include desktop-sm {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  position: relative;
+  min-width: 220px;
+  max-width: 250px;
+  height: 15px;
+  padding: 10.18px 0 13.58px 21px;
+  font-weight: 700;
+  font-family: "Microgramma D Extended", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-color: $color-purple-01;
+  -webkit-mask: url(../../assets/icons/tab.svg) no-repeat 0/cover;
+  mask: url(../../assets/icons/tab.svg) no-repeat 0/cover;
+}
+
+.tab > a {
+  text-decoration: none;
+  color: white;
+}
+
+.tab > a > span {
+  cursor: pointer;
+}
+
+.active::before {
+  background-color: $color-green-01;
+}
+
+.break {
+  @include desktop {
+    display: none;
+  }
+
+  flex-basis: 100%;
+  height: 10px;
+}
+
+.textContainer {
+  @include tablet {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  @include desktop-min {
+    margin-top: 70px;
+    margin-bottom: 40px;
+  }
+
+  @include desktop-sm {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  @include desktop {
+    margin-bottom: 40px;
+  }
+
+  @include desktop-big {
+    margin-top: 88px;
+  }
+
+  max-height: 616px;
+  margin: 56px 0 17px 40px;
+  background-color: rgba(13, 4, 34, 0.1);
+  backdrop-filter: blur(5px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 3px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 3px;
+  }
+}
+
+.text {
+  @include tablet {
+    max-height: 637px;
+  }
+
+  @include desktop-min {
+    max-height: 379px;
+  }
+
+  @include desktop-sm {
+    max-height: 444px;
+  }
+
+  @include desktop {
+    max-height: 594px;
+  }
+
+  @include desktop-big {
+    max-height: 658px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  max-height: 560px;
+  padding-right: 40px;
+  font-size: 14px;
+  line-height: 21px;
+  white-space: pre-wrap;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 3px;
+  }
+}
+
+.titleOne {
+  margin-bottom: 16px;
+  font-weight: 400;
+  font-size: 26px;
+
+  @include desktop-min {
+    margin-bottom: 22px;
+  }
+
+  @include desktop {
+    margin-bottom: 30px;
+  }
+
+  @include desktop-big {
+    font-size: 30px;
+    line-height: 25px;
+  }
+}
+
+.titleTwo {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 23px;
+
+  @include desktop-min {
+    margin-bottom: 12px;
+  }
+
+  @include desktop {
+    margin-bottom: 16px;
+  }
+
+  @include desktop-big {
+    font-size: 27px;
+    line-height: 23px;
+  }
+}
+
+.titleThree {
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 18px;
+
+  @include desktop-min {
+    margin-bottom: 8px;
+  }
+
+  @include desktop {
+    margin-bottom: 12px;
+  }
+
+  @include desktop-big {
+    font-size: 22px;
+    line-height: 21px;
+  }
+}
+
+.text {
+  margin-bottom: 12px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  white-space: pre-wrap;
+
+  @include desktop {
+    font-size: 16px;
+  }
+}
+
+.formula {
+  margin-bottom: 12px;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.tables {
+  width: 100%;
+  max-height: 500px;
+  margin-bottom: 10px;
+  overflow: auto;
+  background: #210022;
+  border-radius: 10px;
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 5px;
+  }
+}
+
+.tableSize {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: unset !important;
+}
+
+.overflow {
+  overflow-y: auto !important;
+}
+
+.noOverflow {
+  overflow-y: hidden !important;
+}

@@ -1,0 +1,319 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/mixins";
+
+.modal {
+  @include tablet {
+    width: 642px;
+  }
+
+  @include desktop {
+    width: 652px;
+  }
+
+  width: 538px;
+}
+
+.modal > div {
+  position: relative;
+  padding: 0;
+}
+
+.modal > div > article {
+  @include desktop {
+    height: 648px;
+    margin-top: 19px;
+    margin-bottom: 26px;
+  }
+
+  height: 528px;
+  overflow-y: auto;
+  margin: 2px 3px 12px 0;
+  padding-right: 6px;
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 3px;
+  }
+}
+
+.modal > div > div {
+  height: 1px;
+}
+
+.close {
+  @include tablet {
+    width: 76px;
+  }
+
+  position: absolute;
+  top: calc(var(--dialog-outline-corner-size) - 2px);
+  right: 1px;
+  width: 63px;
+}
+
+.header {
+  width: 292px;
+  height: 61px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+  background-image: url("../../assets/cardHeader.svg");
+  background-size: 292px 61px;
+}
+
+.bet {
+  @include tablet {
+    justify-content: space-between;
+    padding: 5px 10px 5px 16px;
+  }
+
+  height: 80px;
+  padding: 5px 0 5px 6px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+.bet::before {
+  @include tablet {
+    margin: 0;
+  }
+
+  content: '';
+  display: inline-block;
+  vertical-align: bottom;
+  width: 40px;
+  aspect-ratio: 1;
+  margin-right: 10px;
+  background: url(../../assets/icons/uefa.svg) no-repeat 0/cover;
+}
+
+.bet > div {
+  @include tablet {
+    width: 476px;
+    max-width: none;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @include desktop {
+    width: 500px;
+  }
+
+  max-width: 386px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.infoOne, .infoTwo {
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.infoOne {
+  @include tablet {
+    width: 324px;
+  }
+
+  @include desktop {
+    width: 348px;
+  }
+}
+
+.infoTwo {
+  @include tablet {
+    width: 142px;
+  }
+}
+
+.paragraph {
+  display: flex;
+  align-items: center;
+}
+
+.coin {
+  @include tablet {
+    margin-left: 5px;
+  }
+}
+
+.bet > div > section > p {
+
+  display: flex;
+  font-size: 12px;
+  line-height: 150%;
+  color: $color-grey-02;
+  white-space: pre-wrap;
+}
+
+.bet > div > section > p > span, time {
+  color: $color-root;
+  display: flex;
+  align-items: center;
+}
+
+.vs {
+  @include tablet {
+    margin: 0;
+  }
+
+  display: flex;
+  align-items: center;
+  column-gap: 3px;
+  min-width: 40px;
+  margin: 0 10px;
+  color: $color-grey-02 !important;
+}
+
+.vs::before,
+.vs::after {
+  content: ' ';
+  width: 100%;
+  height: 1px;
+  flex-shrink: 1;
+  background-color: $color-grey-05;
+}
+
+.win, .lost {
+  @include tablet {
+    margin: 0;
+  }
+
+  width: 60px;
+  height: 32px;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.win {
+  color: $color-green-01;
+  background-color: rgba(0, 255, 120, 0.1);
+}
+
+.lost {
+  color: #FF0000;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.mainInfo {
+  @include tablet {
+    padding: 10px 16px;
+  }
+
+  padding: 10px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconList {
+  width: 143px;
+  height: 44px;
+  display: flex;
+}
+
+.iconList > li:not(:first-child) {
+  margin-left: -15px;
+}
+
+.bets {
+  height: 68px;
+  overflow-y: hidden;
+  transition: height $animation-time;
+}
+
+.bets > section > ul {
+  list-style: none;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  background-color: $color-purple-04;
+  border-radius: 30px;
+}
+
+.buttonContainer {
+  @include tablet {
+    width: 262px;
+    display: flex;
+    justify-content: end;
+  }
+
+  @include desktop {
+    width: 286px;
+  }
+}
+
+.button {
+  @include tablet {
+    min-width: 154px;
+    width: auto;
+  }
+
+  width: 154px;
+  height: 42px;
+}
+
+.button > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainInfo:has(.lost) {
+  .button {
+    visibility: hidden;
+  }
+}
+
+.marginZero {
+  margin: 0;
+}
+
+.arrowButton {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background-color: transparent;
+}
+
+.arrow {
+  -moz-transition: all .2s linear;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+.arrow.up {
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  transform:rotate(180deg);
+}
+
+.betList {
+  min-height: 90px;
+}

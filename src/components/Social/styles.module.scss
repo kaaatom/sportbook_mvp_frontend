@@ -1,0 +1,41 @@
+@import "src/assets/styles/variables";
+
+.container {
+  position: relative;
+  width: max-content;
+  outline: none;
+}
+
+.container::before {
+  content: '';
+  display: block;
+  width: 20px;
+  aspect-ratio: 1;
+
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+
+  background-color: $color-purple-03;
+  transition: background-color $transition-time;
+}
+
+.container:is(:hover, :focus-visible)::before {
+  background-color: white;
+}
+
+.twitter::before {
+  -webkit-mask-image: url(../../assets/icons/social/twitter.svg);
+  mask-image: url(../../assets/icons/social/twitter.svg);
+}
+
+.facebook::before {
+  -webkit-mask-image: url(../../assets/icons/social/facebook.svg);
+  mask-image: url(../../assets/icons/social/facebook.svg);
+}
+
+.github::before {
+  -webkit-mask-image: url(../../assets/icons/social/github.svg);
+  mask-image: url(../../assets/icons/social/github.svg);
+}

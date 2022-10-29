@@ -1,0 +1,25 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/variables';
+
+.banner {
+  width: 100%;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: #8E96A3;
+}
+
+.link {
+  margin-top: 24px;
+  display: inline-block;
+
+  @include desktop-min {
+    margin-top: 32px;
+  }
+}

@@ -1,0 +1,133 @@
+@import '../../assets/styles/mixins';
+
+.tableWrap {
+  line-height: 1;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+  position: relative;
+}
+
+.thead {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50.52%, rgba(255, 255, 255, 0) 100%) #210022 ;
+  z-index: 10;
+  font-size: 15px !important;
+
+  @include tablet {
+    font-size: 18px !important;
+  }
+}
+
+.thead::before {
+  width: 100%;
+  opacity: 0;
+}
+
+.borderTr {
+  background: linear-gradient(270deg, rgba(58, 33, 75, 0) 0%, #3A214B 48.96%, rgba(58, 33, 75, 0) 100%);
+  position: absolute;
+  width: 100%;
+}
+
+.borderTd {
+  position: relative;
+  overflow: visible;
+  height: 1px;
+}
+
+.tbody {
+  font-size: 15px !important;
+
+  @include tablet {
+    font-size: 18px !important;
+  }
+}
+
+.scrollBodyContainer {
+  max-height: 380px;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    background: #271C3F;
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-purple-thumb;
+  }
+  &::-webkit-resizer {
+    width: 5px;
+  }
+}
+
+.tableHeadContainer {
+  width: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50.52%, rgba(255, 255, 255, 0) 100%);
+}
+
+.border {
+  height: 1px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 48.96%, rgba(255, 255, 255, 0) 100%);
+}
+
+.border1 {
+  height: 1px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 48.96%, rgba(255, 255, 255, 0) 100%);
+}
+
+.tableHeadHide {
+  opacity: 0;
+  max-height: 0;
+
+  .tr {
+
+    .th {
+      padding: 0 20px;
+
+      > div {
+        max-height: 0;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.lastItemContainer {
+  background: #210022;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  left: 0;
+  z-index: 1;
+  transition: opacity $animation-time;
+}
+
+.hideLastItem {
+  display: none;
+  opacity: 0;
+}
+
+.showLastItem {
+  z-index: 2;
+}
+
+.loader {
+  @include flexbox();
+}
+
+.noData {
+  height: 380px;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.tableHead {
+  white-space: normal !important;
+}
